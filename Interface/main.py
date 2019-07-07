@@ -16,7 +16,7 @@ import market
 @click.option('-t', type=click.Choice(['buy','sell']), help='Your choice of transaction')
 @click.option('-o', type=click.Choice(['market','limit']), help='Your choice of order')
 @click.option('-q', type=click.INT, help='How much of the currency you would like to buy/sell')
-@click.option('-p', type=clic9k.INT, help='What price you will bargain for.')
+@click.option('-p', type=click.INT, help='What price you will bargain for.')
 @click.option('-c', type=click.STRING, help='The crypto token of your choice.')
 
 #Function

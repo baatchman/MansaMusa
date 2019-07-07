@@ -17,7 +17,7 @@ class Market():
 	#s = 0
 
 	def xch(self, xtype1, xtype2, xsymbol, xquantity, xprice ):
-                print("Exchange Interface Initialised")
+		print("Exchange Interface Initialised")
 		print("Formulating the order...")
 
 		#Time to sort the parameters
@@ -29,10 +29,10 @@ class Market():
 
 				print("Market buying " + xquantity + " " +  xsymbol + " at the price of " + xprice + ".")
 
-				order = client.order_market_buy(
-					symbol=xsymbol,
-					quantity=xquantity,
-					price=xprice)
+				#order = client.order_market_buy(
+				#	symbol=xsymbol,
+				#	quantity=xquantity,
+				#	price=xprice)
 
 				print("Order completed.")
 
@@ -41,10 +41,10 @@ class Market():
 
 				print("Limit buying " + xquantity + " " +  xsymbol + " at the price of " + xprice + ".")
 
-				order = client.order_limit_buy(
-					symbol=xsymbol,
-					quantity=xquantity,
-					price=xprice)
+				#order = client.order_limit_buy(
+				#	symbol=xsymbol,
+				#	quantity=xquantity,
+				#	price=xprice)
 
 				print("Order completed.")
 
@@ -58,10 +58,10 @@ class Market():
 
 				print("Market selling " + xquantity + " " +  xsymbol + " at the price of " + xprice + ".")
 
-				order = client.order_market_sell(
-					symbol=xsymbol,
-					quantity=xquantity,
-					price=xprice)
+				#order = client.order_market_sell(
+				#	symbol=xsymbol,
+				#	quantity=xquantity,
+				#	price=xprice)
 
 				print("Order completed.")
 
@@ -69,10 +69,10 @@ class Market():
 
 				print("Limit selling " + xquantity + " " +  xsymbol + " at the price of " + xprice + ".")
 
-				order = client.order_limit_sell(
-					symbol=xsymbol,
-					quantity=xquantity,
-					price=xprice)
+				#order = client.order_limit_sell(
+				#	symbol=xsymbol,
+				#	quantity=xquantity,
+				#	price=xprice)
 
 				print("Order completed.")
 
