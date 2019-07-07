@@ -10,7 +10,6 @@ from pathlib import Path
 from binance.client import Client
 from binance.enums import *
 import argparse
-#client = Client('J2YbY1UFBWXnHWPtLCuzaG2oxoEYq1ESoYVs1rAbr3bQbR2bzFoTSlqLn5xpMYR7', 'CfmFxa9QqBljaXHUIdpv0fDZchzQCo5O0JroVX0Ws1fovsgahTw2OlbIVemjfpT0')
 
 #Importing scripts
 sys.path.insert(0, 'code/')
