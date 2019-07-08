@@ -17,8 +17,8 @@ class Market():
 	#b = 0
 	#s = 0
 
-	def xch(self, xtype1, xtype2, xsymbol, xquantity, xprice, api_key ):
-		client = Client(api_key, CONST_SECRET_KEY)
+	def xch(self, xtype1, xtype2, xsymbol, xquantity, xprice, p_key, s_key ):
+		client = Client(p_key, s_key)
 		print("Exchange Interface Initialised")
 		time.sleep(1)
 		print("Formulating the order...")

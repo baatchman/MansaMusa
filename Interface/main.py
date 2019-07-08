@@ -1,6 +1,7 @@
 #!/usr/bin/python
 
 #Import modules
+from array import *
 import time
 import click
 from pathlib import Path
@@ -38,19 +39,28 @@ def init(a, t, o, q, p, c):
             sys.exit()
         click.echo("Account file detected.")
         time.sleep(2)
-        #Load the account key
-        with open(accfile, "r") as ins:
-            array = []
-            for line in ins:
-                array.append(line)
-        click.echo("Account loaded.")
+        #Find the number of lines in file
+        num_lines = 0
+        with open(accfile, "r") as f:
+            for line in f:
+                num_lines += 1
+        #Put account keys into 2d array
+        duo = 0
+        keyarray = []
+        while duo != num_lines / 2:
+            f = open(accfile, "r"):
+                p_key = f.readline()
+                s_key = f.readline()
+                keyarray.insert(duo, [p_key, s_key])
+                duo += 1
+        click.echo("Accounts loaded.")
         time.sleep(1)       
         #Transition to the market interface.
         click.echo("Setting up exchange interface")
         time.sleep(1)
-        client = Client(array[0], CONST_SECRET_KEY)
+        client = Client(keyarray[0][0], keyarray[0][1]
         m = market.Market()
-        m.xch(t, o, c, q, p, array[0])
+        m.xch(t, o, c, q, p, keyarray[0][0], keyarray[0][1])
     else:
         click.echo("ERROR: The specified file does not exist.")
         sys.exit()
