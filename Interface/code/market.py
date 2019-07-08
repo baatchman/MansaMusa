@@ -23,7 +23,7 @@ class Market():
 		print("Exchange Interface Initialised")
 		time.sleep(1)
 		print("Formulating the order...")
-		time.sleep(2)
+		time.sleep(1)
 
 		#Time to sort the parameters
 
@@ -36,8 +36,8 @@ class Market():
 
 				order = client.order_market_buy(
 					symbol=xsymbol,
-					quantity=xquantity,
-					price=xprice)
+					quantity=xquantity)
+					#price = xprice
 
 				print("Order completed.")
 
@@ -48,8 +48,8 @@ class Market():
 
 				order = client.order_limit_buy(
 					symbol=xsymbol,
-					quantity=xquantity,
-					price=xprice)
+					quantity=xquantity)
+					#price = xprice
 
 				print("Order completed.")
 
@@ -65,8 +65,8 @@ class Market():
 
 				order = client.order_market_sell(
 					symbol=xsymbol,
-					quantity=xquantity,
-					price=xprice)
+					quantity=xquantity)
+					#price = xprice
 
 				print("Order completed.")
 
@@ -76,8 +76,8 @@ class Market():
 
 				order = client.order_limit_sell(
 					symbol=xsymbol,
-					quantity=xquantity,
-					price=xprice)
+					quantity=xquantity)
+					#price = xprice
 
 				print("Order completed.")
 
