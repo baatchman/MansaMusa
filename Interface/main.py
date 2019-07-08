@@ -47,18 +47,18 @@ def init(a, t, o, q, p, c):
         #Put account keys into 2d array
         duo = 0
         keyarray = []
+        bruh = open(accfile, "r")
         while duo != num_lines / 2:
-            f = open(accfile, "r"):
-                p_key = f.readline()
-                s_key = f.readline()
-                keyarray.insert(duo, [p_key, s_key])
-                duo += 1
+             p_key = f.readline()
+             s_key = f.readline()
+             keyarray.insert(duo, [p_key, s_key])
+             duo += 1
         click.echo("Accounts loaded.")
         time.sleep(1)       
         #Transition to the market interface.
         click.echo("Setting up exchange interface")
         time.sleep(1)
-        client = Client(keyarray[0][0], keyarray[0][1]
+        client = Client(keyarray[0][0], keyarray[0][1])
         m = market.Market()
         m.xch(t, o, c, q, p, keyarray[0][0], keyarray[0][1])
     else:
