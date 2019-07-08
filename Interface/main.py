@@ -1,5 +1,4 @@
 #!/usr/bin/python
-CONST_SECRET_KEY = "qzm4VrcBXgVInqfmlJnPcj0d4K8kab3VAfkkgpWOlKUqmsYbOuGsJ59VLnGTccqH"
 
 #Import modules
 import time

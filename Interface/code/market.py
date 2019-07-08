@@ -1,4 +1,3 @@
-CONST_SECRET_KEY = "qzm4VrcBXgVInqfmlJnPcj0d4K8kab3VAfkkgpWOlKUqmsYbOuGsJ59VLnGTccqH"
 from cmd import Cmd
 
 import time
