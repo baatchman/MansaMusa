@@ -14,6 +14,7 @@ from binance.enums import *
 #Import scripts
 sys.path.insert(0, 'code/')
 import market
+import setupaccounts
 
 #Setup command line arguments
 @click.command()
@@ -65,7 +66,12 @@ def init(a, t, o, q, p, c):
         click.echo("ERROR: The specified file does not exist.")
         sys.exit()
 
-    
+@click.command()
+@click.option('--setup', type=click.BOOL, default='false', help="Sends you to a user friendly program to set your account file, use '--setup true' to do this.")
+
+def setupAccounts(setup):
+    sa = setupaccounts
+    sa.main()
 
 if __name__ == '__main__':
     init()
