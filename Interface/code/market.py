@@ -23,11 +23,11 @@ class Market():
 		#Time to sort the parameters
 
 		#xtype1
-		if strtolower(xtype1) == ("buy"):
+		if xtype1.lower() == ("buy"):
 
-			if strtolower(xtype2) == ("market"):
+			if xtype2.lower() == ("market"):
 
-				print("Market buying " + xquantity + " " +  xsymbol + " at the price of " + xprice + ".")
+				print("Market buying " + str(xquantity) + " " +  xsymbol + " at the price of " + str(xprice) + ".")
 
 				order = client.order_market_buy(
 					symbol=xsymbol,
@@ -37,9 +37,9 @@ class Market():
 				print("Order completed.")
 
 
-			elif strtolower(xtype2) == ("limit"):
+			elif xtype2.lower() == ("limit"):
 
-				print("Limit buying " + xquantity + " " +  xsymbol + " at the price of " + xprice + ".")
+				print("Limit buying " + str(xquantity) + " " +  xsymbol + " at the price of " + str(xprice) + ".")
 
 				order = client.order_limit_buy(
 					symbol=xsymbol,
@@ -52,11 +52,11 @@ class Market():
 				print("ERROR: Unknown input")
 				return
 
-		elif strtolower(xtype1) == ("sell"):
+		elif xtype1.lower() == ("sell"):
 
-			if strtolower(xtype2) == ("market"):
+			if xtype2.lower() == ("market"):
 
-				print("Market selling " + xquantity + " " +  xsymbol + " at the price of " + xprice + ".")
+				print("Market selling " + str(xquantity) + " " +  xsymbol + " at the price of " + str(xprice) + ".")
 
 				order = client.order_market_sell(
 					symbol=xsymbol,
@@ -65,9 +65,9 @@ class Market():
 
 				print("Order completed.")
 
-			elif strtolower(xtype2) == ("limit"):
+			elif xtype2.lower() == ("limit"):
 
-				print("Limit selling " + xquantity + " " +  xsymbol + " at the price of " + xprice + ".")
+				print("Limit selling " + str(xquantity) + " " +  xsymbol + " at the price of " + str(xprice) + ".")
 
 				order = client.order_limit_sell(
 					symbol=xsymbol,

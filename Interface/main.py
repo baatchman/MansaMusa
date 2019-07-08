@@ -22,7 +22,7 @@ import market
 #Function
 def init(a, t, o, q, p, c):
     #Load the account file
-    click.echo("Loading acc9ounts...")
+    click.echo("Loading accounts...")
     accfile = Path(a)
     if accfile.is_file():
         if os.path.getsize(a) == 0:
