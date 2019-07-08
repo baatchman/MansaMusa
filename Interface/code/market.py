@@ -1,5 +1,7 @@
+CONST_SECRET_KEY = "qzm4VrcBXgVInqfmlJnPcj0d4K8kab3VAfkkgpWOlKUqmsYbOuGsJ59VLnGTccqH"
 from cmd import Cmd
 
+import time
 import binance
 import json
 import unicodedata
@@ -16,9 +18,12 @@ class Market():
 	#b = 0
 	#s = 0
 
-	def xch(self, xtype1, xtype2, xsymbol, xquantity, xprice ):
+	def xch(self, xtype1, xtype2, xsymbol, xquantity, xprice, api_key ):
+		client = Client(api_key, CONST_SECRET_KEY)
 		print("Exchange Interface Initialised")
+		time.sleep(1)
 		print("Formulating the order...")
+		time.sleep(2)
 
 		#Time to sort the parameters
 

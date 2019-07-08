@@ -1,10 +1,15 @@
 #!/usr/bin/python
+CONST_SECRET_KEY = "qzm4VrcBXgVInqfmlJnPcj0d4K8kab3VAfkkgpWOlKUqmsYbOuGsJ59VLnGTccqH"
 
 #Import modules
+import time
 import click
 from pathlib import Path
 import os
 import sys
+import binance
+from binance.client import Client
+from binance.enums import *
 
 #Import scripts
 sys.path.insert(0, 'code/')
@@ -21,18 +26,32 @@ import market
 
 #Function
 def init(a, t, o, q, p, c):
-    #Load the account file
+    #Load the accounts
     click.echo("Loading accounts...")
+    time.sleep(3)
     accfile = Path(a)
+    #Find the account file
+    click.echo("Detecting Account file...")
+    time.sleep(2)
     if accfile.is_file():
         if os.path.getsize(a) == 0:
             click.echo("ERROR: No accounts in the account file, please put them in.")
             sys.exit()
-        click.echo("Accounts loaded")
+        click.echo("Account file detected.")
+        time.sleep(2)
+        #Load the account key
+        with open(accfile, "r") as ins:
+            array = []
+            for line in ins:
+                array.append(line)
+        click.echo("Account loaded.")
+        time.sleep(2)       
         #Transition to the market interface.
         click.echo("Setting up exchange interface")
+        time.sleep(3)
+        client = Client(array[0], CONST_SECRET_KEY)
         m = market.Market()
-        m.xch(t, o, c, q, p)
+        m.xch(t, o, c, q, p, array[0])
     else:
         click.echo("ERROR: The specified file does not exist.")
         sys.exit()
