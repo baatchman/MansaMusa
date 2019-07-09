@@ -1,5 +1,6 @@
 from cmd import Cmd
 
+import datetime
 import time
 import binance
 import json
@@ -39,7 +40,10 @@ class Market():
 					#price = xprice
 
 				print("Order completed.")
-
+                                f = open("../debug/log.txt", "a+")
+                                f.write("SUCCEES: Market Bought " + xquantity + " " + xsymbol + " at " + datetime.datetime.now())
+                                f.close()
+                                return
 
 			elif xtype2.lower() == ("limit"):
 
@@ -51,7 +55,7 @@ class Market():
 					#price = xprice
 
 				print("Order completed.")
-
+                                f = open("../debug/log.txt", "a+")                                                                  f.write("SUCCEES: Limit Bought " + xquantity + " " + xsymbol + " at " + datetime.datetime.now())                                                     f.close()                                         return
 			else:
 				print("ERROR: Unknown input")
 				return
@@ -69,6 +73,8 @@ class Market():
 
 				print("Order completed.")
 
+                                f = open("../debug/log.txt", "a+")                                                                  f.write("SUCCEES: Market Sold " + xquantity + " " + xsymbol + " at " + datetime.datetime.now())                                                     f.close()                                         return
+
 			elif xtype2.lower() == ("limit"):
 
 				print("Limit selling " + str(xquantity) + " " +  xsymbol + " at the price of " + str(xprice) + ".")
@@ -79,6 +85,8 @@ class Market():
 					#price = xprice
 
 				print("Order completed.")
+
+                                f = open("../debug/log.txt", "a+")                                                                  f.write("SUCCEES: Limit sold " + xquantity + " " + xsymbol + " at " + datetime.datetime.now())                                                     f.close()                                         return
 
 			else:
 				print("ERROR: Unknown input")
