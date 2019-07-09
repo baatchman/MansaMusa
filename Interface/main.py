@@ -65,12 +65,26 @@ def init(a, t, o, q, p, c, setup):
             #Transition to the market interface.
             click.echo("Setting up exchange interface")
             time.sleep(1)
-            client = Client(keyarray[0][0], keyarray[0][1])
-            m = market.Market()
-            m.xch(t, o, c, q, p, keyarray[0][0], keyarray[0][1])
+            traderLoop(t, o, q, p, c, keyarray)
         else:
             click.echo("ERROR: The specified file does not exist.")
             sys.exit()
+
+def traderLoop(xT, xO, xQ, xP, xC, ar):
+    for row in ar:
+        client = Client(row[0], row[1])
+        info = client.get_account()
+        if not info['balances']:
+            print("ERROR: No balance in this account, moving on to the next one")
+        else:
+            m = market.Market()
+            m.xch(xT, xO, xC, xQ, xP, row[0], row[1])
+            return
+    #client = Client(ar[0][0], ar[0][1])
+    #status = client.get_account()
+    #print(status)
+    #m = market.Market()
+    #m.xch(xT, xO, xC, xQ, xP, ar[0][0], ar[0][1])
 
 if __name__ == '__main__':
     init()
