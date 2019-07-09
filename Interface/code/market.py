@@ -40,9 +40,9 @@ class Market():
 					#price = xprice
 
 				print("Order completed.")
-                f = open("../debug/log.txt", "a+")
-                f.write("SUCCEES: Market Bought " + xquantity + " " + xsymbol + " at " + datetime.datetime.now())
-                f.close()
+                		f = open("../debug/log.txt", "a+")
+                		f.write("SUCCEES: Market Bought " + xquantity + " " + xsymbol + " at " + datetime.datetime.now())
+                		f.close()
                 return
 
 			elif xtype2.lower() == ("limit"):
