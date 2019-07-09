@@ -80,11 +80,6 @@ def traderLoop(xT, xO, xQ, xP, xC, ar):
             m = market.Market()
             m.xch(xT, xO, xC, xQ, xP, row[0], row[1])
             return
-    #client = Client(ar[0][0], ar[0][1])
-    #status = client.get_account()
-    #print(status)
-    #m = market.Market()
-    #m.xch(xT, xO, xC, xQ, xP, ar[0][0], ar[0][1])
 
 if __name__ == '__main__':
-    init()
+    init()  
