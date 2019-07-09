@@ -72,11 +72,5 @@ def init(a, t, o, q, p, c, setup):
             click.echo("ERROR: The specified file does not exist.")
             sys.exit()
 
-#@click.command()
-
-#def setupAccounts(setup):
-#    sa = setupaccounts
-#    sa.main()
-
 if __name__ == '__main__':
     init()
