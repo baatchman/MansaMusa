@@ -13,10 +13,6 @@ from binance.enums import *
 import main
 
 class Market():
-	#l = 0
-	#m = 0
-	#b = 0
-	#s = 0
 
 	def xch(self, xtype1, xtype2, xsymbol, xquantity, xprice, p_key, s_key):
 		client = Client(p_key, s_key)
@@ -25,7 +21,7 @@ class Market():
 		print("Formulating the order...")
 		time.sleep(1)
 
-		#Time to sort the parameters
+		#Time to go through the parameters
 
 		#xtype1
 		if xtype1.lower() == ("buy"):
@@ -40,9 +36,9 @@ class Market():
 					#price = xprice
 
 				print("Order completed.")
-                		f = open("../debug/log.txt", "a+")
-                		f.write("SUCCEES: Market Bought " + xquantity + " " + xsymbol + " at " + datetime.datetime.now())
-                		f.close()
+                f = open("../debug/log.txt", "a+")
+                f.write("SUCCEES: Market Bought " + xquantity + " " + xsymbol + " at " + datetime.datetime.now())
+                f.close()
                 return
 
 			elif xtype2.lower() == ("limit"):
