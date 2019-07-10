@@ -1,0 +1,115 @@
+
+class c_State_Node_Bin_Node_1D
+{
+     friend class c_State_Node_Bin_Tree_1D; 
+     private:
+          c_State_Node_Bin_Node_1D * Right;
+          c_State_Node_Bin_Node_1D * Left;
+          
+     public:
+          u_Data Data;
+          c_Base_Node_1D * NID;
+                
+};
+
+class c_State_Node_Bin_Tree_1D
+{
+     private:
+             
+     public:
+          c_State_Node_Bin_Node_1D * Root;
+          c_State_Node_Bin_Node_1D ** Current;//the current node that will allow referencing outside of the search function
+          bool flg_Foundit;//the flag that set when a node is found already set
+          
+          c_State_Node_Bin_Tree_1D()
+          {
+               Root = NULL;
+               Current = NULL;
+               flg_Foundit = false;
+          }
+          
+          ~c_State_Node_Bin_Tree_1D()
+          {
+               delete Root;
+               delete Current;
+          }
+          
+          void search(u_Data p_Data)
+          {
+               flg_Foundit = false;
+               query_Node(Root, p_Data);
+          }
+          
+          int query_Node(c_State_Node_Bin_Node_1D *&p_Node, u_Data p_Data)
+          {
+               if (p_Node == NULL){      
+                    p_Node = new c_State_Node_Bin_Node_1D;
+                    p_Node->Right = NULL;
+                    p_Node->Left = NULL;
+                    p_Node->Data = p_Data;
+                    p_Node->NID = NULL;
+                    }
+               if (p_Node->Data.NR == p_Data.NR)
+               {
+                    Current = &p_Node;  
+                    if (p_Node->NID != NULL){ flg_Foundit = true; }
+                    return 0;
+               }
+                    
+               if (p_Data.NR < p_Node->Data.NR)
+               {
+                    query_Node(p_Node->Left, p_Data);
+                    return 0;
+               }
+                    
+               if (p_Data.NR > p_Node->Data.NR)
+               {
+                    query_Node(p_Node->Right, p_Data);
+                    return 0;
+               }
+                    
+               return 0;
+          }
+          
+          void output_Tree()
+          {
+               output_Node(Root);
+          }
+          
+          void output_Node(c_State_Node_Bin_Node_1D *&p_Node)
+          {
+               if (p_Node == NULL){ return; }
+               output_Node(p_Node->Left);
+               cout << "\n\t &" << p_Node->NID << " >" << p_Node->Data.I;
+               output_Node(p_Node->Right);
+          }
+          
+          c_Base_Node_1D * get_Node_NID(c_State_Node_Bin_Node_1D * &p_Node)
+          {
+               if (p_Node != NULL){     
+                    return p_Node->NID;      
+                    } else {
+                        return NULL;
+                    }
+          }
+          
+          void set_Node_NID(c_State_Node_Bin_Node_1D * &p_Node, c_Base_Node_1D * p_NID)
+          {
+               if (p_Node != NULL){
+                    p_Node->NID = p_NID;
+                    }
+          }
+          
+          c_Base_Node_1D * set_Current_Node_NID(c_Base_Node_1D * p_NID)
+          {
+               set_Node_NID(*Current, p_NID);
+               return p_NID;
+          }
+          
+          c_Base_Node_1D * get_Current_Node_NID()
+          {
+               return get_Node_NID(*Current);
+          }
+                    
+};
+

@@ -1,0 +1,45 @@
+
+
+//     --c_Poly_Node.h
+
+//The poly nodes, base building block of the neural trees.
+class c_Poly_Node;
+
+
+
+
+//--     c_Poly_Network.h
+
+//   This class holds all of the nodes in the network,
+// when a new node is requested the network creates one and 
+// returns a handle to it.
+class c_Poly_Network;
+
+class c_Poly_Network_Handler;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
