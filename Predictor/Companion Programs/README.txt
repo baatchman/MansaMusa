@@ -1,0 +1,5 @@
+-Open NetworkerHTML.bat or delete the files in ".\NT3.Save\MMap\Scary_Solstice"
+-Enter the data to read in. Spaces are deliminators. 
+-Use the command "/output"
+-The XY padding is the number of pixels between nodes in the output.
+-The output file will be ".\NT3.Save\MMap\Scary_Solstice\Spooky.html"
